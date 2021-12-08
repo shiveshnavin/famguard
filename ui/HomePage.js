@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StyleSheet, Text, FlatList } from "react-native";
 import api from '../utils/api'
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
 
 const HomePage = (props) => {
   let user = props.user;
@@ -21,15 +22,15 @@ const HomePage = (props) => {
 
             return (
               <Button
-                size="6vh"
+                size="60"
                 title={item.name}
                 type="clear"
                 style={{ flex: 1, flexDirection: "column" }}
                 onPress={function () { firebase.logout() }}
                 icon={
-                  <Icon
-                    name="logout"
-                    size="5vh"
+                  <Ionicons
+                    name="md-checkmark-circle"
+                    size={32}
                     color="red"
                   />
                 }

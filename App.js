@@ -5,6 +5,7 @@ import firebase from './utils/firebase';
 import LoginPage from './ui/LoginPage'
 import HomePage from './ui/HomePage'
 import { Button, Icon } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
 
 
 
@@ -38,39 +39,34 @@ export default function App() {
     <View style={styles.container}>
       <View style={[{
         width: "100%",
-        padding: "2vh",
-        paddingRight: "5vh",
+        padding: 20,
+        paddingRight: 50,
         flexDirection: "row"
       }]} >
 
         <Button
-          size="6vh"
+          title="Menu"
+          size="60"
           type="clear"
           style={{ flex: 1 }}
           icon={
-            <Icon
-              size="6vh"
-              name='apps' />
+            <Ionicons name="md-checkmark-circle" size={32} />
           }
         />
 
 
         <View style={{ justifyContent: "center", flex: 5 }} >
-          <Text style={styles.text}> FamGuard </Text>
+          <Text style={styles.text} > FamGuard </Text>
         </View>
 
 
         <Button
-          size="6vh"
+          size="60"
           type="clear"
           style={{ flex: 1 }}
           onPress={function () { firebase.logout() }}
           icon={
-            <Icon
-              name="logout"
-              size="5vh"
-              color="red"
-            />
+            <Ionicons name="md-checkmark-circle" size={32} color="red" />
           }
         />
       </View>
@@ -84,10 +80,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  text: { fontFamily: "Helvetica", fontSize: 10, padding: "1vh", justifyContent: "center", textAlign: 'center' },
+  text: { fontFamily: "Helvetica", fontSize: 20, padding: 10, justifyContent: "center", textAlign: 'center' },
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center'
+    padding: 10
   },
 });
