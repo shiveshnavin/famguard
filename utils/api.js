@@ -15,9 +15,6 @@ export default {
         querySnapshot.forEach((doc) => {
             console.log(`${doc.id} => ${doc.data()}`);
             mems.push(doc.data())
-            mems.push(doc.data())
-            mems.push(doc.data())
-            mems.push(doc.data())
         });
         return mems
     }
