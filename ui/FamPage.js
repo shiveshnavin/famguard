@@ -4,6 +4,7 @@ import api from '../utils/api'
 import { Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../colors'
+const Separator = () => <View style={styles.separator} />;
 
 var colorslist = [];
 Colors.colors.forEach(element => {
@@ -38,50 +39,42 @@ const FamPage = (props) => {
             alignItems: 'center',
             margin: 3
         }} >
-            <TouchableOpacity
+            <Button
                 style={{
-                    padding: 10,
-                    justifyContent: "center",
-                    alignItems: 'center',
-                    flex: 1,
+                    paddingRight: 50,
+                    paddingLeft: 50,
                     margin: 13,
-                    borderRadius: 10,
-                    backgroundColor: '#73e8ff'
                 }}
+                title={user.name}
                 color="red"
                 onPress={() => {
 
                     props.onclose()
 
                 }}  >
-                <Text style={{ fontSize: 20 }}>{user.name}</Text>
-            </TouchableOpacity>
+            </Button>
             <Text style={{ fontSize: 15 }} >{user.status}</Text>
 
             {
                 (user.status && user.status.indexOf("call") > -1)
                 &&
-                <TouchableOpacity
+                <Button
                     style={{
-                        padding: 10,
-                        justifyContent: "center",
-                        alignItems: 'center',
-                        flex: 1,
+                        paddingRight: 50,
+                        paddingLeft: 50,
                         margin: 13,
-                        borderRadius: 10,
-                        backgroundColor: '#ff7961'
                     }}
+                    title="End Call"
                     color="red"
                     onPress={() => {
 
                         api.endCall(props.famid, user.id)
 
                     }}  >
-                    <Text style={{ fontSize: 20 }}>End Call</Text>
-                </TouchableOpacity>
+                </Button>
             }
 
-
+            <Separator />
             <SafeAreaView
                 style={{
                     width: "100%",
@@ -169,6 +162,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         justifyContent: 'center',
 
+    },
+    separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
     },
 });
 
